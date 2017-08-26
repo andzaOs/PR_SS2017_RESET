@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  reset-ios
+
+  Created by Andza Os on 12/02/17.
+  Copyright © 2017 Andza Os. All rights reserved.
+*/
+
+
+"login_bad_input" = "You must enter a username and password!";
+"settings_good_input" = "Account settings successfully updated!";
+"settings_bad_input" = "Passwords are not matching!";
+"settings_bad_new_password" = "The new password must contain at least 8 characters, a digit and a special charachter.";
+"settings_bad_old_password" = "Old password is invalid.";
