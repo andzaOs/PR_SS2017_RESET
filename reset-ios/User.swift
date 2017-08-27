@@ -50,7 +50,7 @@ class User {
         
         self.init(firstName: firstName, lastName: lastName, username: username, email: email, backupEmail: backupEmail, id: id)
         
-        }
+    }
     
     convenience init() {
         

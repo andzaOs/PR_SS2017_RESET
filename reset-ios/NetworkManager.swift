@@ -178,7 +178,7 @@ class NetworkManager {
                     if(response.response?.statusCode == 200){
                         
                         var courses:[Course] = []
-                        
+
                         if let array = JSON(result).array {
                             
                             for element in array {
@@ -190,6 +190,7 @@ class NetworkManager {
                                 }
                                 
                             }
+                            
                         }
 
                         completionHandler(courses, nil)
@@ -226,7 +227,7 @@ class NetworkManager {
                     if(response.response?.statusCode == 200){
                         
                         var courses:[Course] = []
-                        
+                                                
                         if let array = JSON(result).array {
                             
                             for element in array {
@@ -263,17 +264,10 @@ class NetworkManager {
 
                                                 
                                             }
-
-                                            
                                         }
-                                        
-                                        
                                     }
-                                    
                                 }
-                                
                             }
-                            
                         }
                         
                     } else {
@@ -297,7 +291,7 @@ class NetworkManager {
     
     func GetEnrolledStudentsCount(courseId: Int, completionHandler: @escaping (Int?, NSError?) -> ()) {
         
-        let url = Constants.API.Courses + String(describing: courseId) + "/" + Constants.API.CourseUserCount + self.Token()
+        let url = Constants.API.Courses + String(describing: courseId) + Constants.API.CourseUserCount + self.Token()
         
         
         Alamofire.request(url, encoding: JSONEncoding.default).responseJSON { response in
@@ -395,9 +389,9 @@ class NetworkManager {
         
     }
     
-    func GetVariantsNamePerCourse(courseId: Int, completionHandler: @escaping ([String]?, NSError?) -> ()){
+    func GetVariantsNamePerCourse(courseId: Int, completionHandler: @escaping ([Variant]?, NSError?) -> ()){
         
-        let url = Constants.API.Courses + String(describing: courseId) + "/" + Constants.API.VariantsPerCourse + self.Token()
+        let url = Constants.API.Courses + String(describing: courseId) + Constants.API.VariantsPerCourse + self.Token()
         
         
         Alamofire.request(url, encoding: JSONEncoding.default).responseJSON { response in
@@ -411,7 +405,7 @@ class NetworkManager {
                     
                     if(response.response?.statusCode == 200){
                         
-                        var variants:[String] = []
+                        var variants:[Variant] = []
                         
                         if let array = JSON(result).array {
                             
@@ -419,7 +413,7 @@ class NetworkManager {
 
                                 if let variant = Variant(json: element) {
                                     
-                                    variants.append(variant.name!)
+                                    variants.append(variant)
                                     
                                 } else {
                                     print("Error")
@@ -437,18 +431,49 @@ class NetworkManager {
                             
                         }
                     }
-                    
                 }
                 
             case .failure(let error):
                 
                 completionHandler(nil, error as NSError?)
             }
-            
-            
-            
         }
+    }
+    
+    func GetCourseVariantMapping(courseId: Int, variantId: Int, completionHandler: @escaping (CourseVariant?, NSError?) -> ()){
         
+        let url = Constants.API.Courses + String(describing: courseId) + "/variants/" + String(describing: variantId) + Constants.API.Token + self.Token()
+        
+        Alamofire.request(url, encoding: JSONEncoding.default).responseJSON { response in
+            
+            switch response.result {
+                
+            case .success :
+                
+                
+                if let result: AnyObject = response.result.value as AnyObject? {
+                    
+                    if(response.response?.statusCode == 200){
+                        
+                        let mapping = CourseVariant(json: JSON(result))
+                                                
+                        completionHandler(mapping, nil)
+                        
+                    } else {
+                        
+                        if let message = JSON(result)["message"].string {
+                            
+                            print("Logg: " + message)
+                            
+                        }
+                    }
+                }
+                
+            case .failure(let error):
+                
+                completionHandler(nil, error as NSError?)
+            }
+        }
     }
 
 }

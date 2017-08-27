@@ -16,6 +16,7 @@ class Courses{
     var courses = [Course]()
     var sectionesByYear = [Int]()
     var sectionesByCourse = [String]()
+    var coursesPerType: [String: [Course]] = [String: [Course]]()
     
     func setCourses(courses: [Course]) {
         self.courses = courses
@@ -23,6 +24,10 @@ class Courses{
     
     func getCourses() -> [Course] {
         return courses
+    }
+    
+    func getCoursesPerType() -> [String: [Course]] {
+        return coursesPerType
     }
     
     func setSectionesByYear() {
@@ -65,15 +70,18 @@ class Courses{
         var sections = [String]()
         
         for course in self.courses {
-            
-            if sections.contains(course.type!) == false {
+                        
+            if !sections.contains(course.type!) {
                 
                 sections.append(course.type!)
                 
+                coursesPerType[course.type!] = [course]
+
+            } else {
+                 coursesPerType[course.type!]?.append(course)
             }
             
         }
-        
         return sections
         
     }

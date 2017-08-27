@@ -17,8 +17,8 @@ struct Constants {
         static let CoursesPerUser = "/courses" + Token
         static let Token = "?token="
         static let Courses = BaseURL + "courses/"
-        static let CourseUserCount = "userCount/enrolled" + Token
-        static let VariantsPerCourse = "variants" + Token
+        static let CourseUserCount = "/userCount/enrolled" + Token
+        static let VariantsPerCourse = "/variants" + Token
     }
     
     struct Auth {

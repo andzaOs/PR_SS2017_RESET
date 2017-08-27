@@ -12,13 +12,13 @@ class Variants{
     
     static let sharedInstance = Variants()
     
-    var variants = [String]()
+    var variants = [Variant]()
     
-    func setVariants(variants: [String]) {
+    func setVariants(variants: [Variant]) {
         self.variants = variants
     }
     
-    func getVarianst() -> [String] {
+    func getVarianst() -> [Variant] {
         return variants
     }
     

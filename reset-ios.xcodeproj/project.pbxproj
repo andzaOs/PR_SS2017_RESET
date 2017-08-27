@@ -24,6 +24,7 @@
 		34509EF81E4FF44600C2DEBD /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34509EF71E4FF44600C2DEBD /* Localized.swift */; };
 		34509EFA1E4FF45300C2DEBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34509EF91E4FF45300C2DEBD /* Constants.swift */; };
 		34509EFE1E4FF46C00C2DEBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34509EFD1E4FF46C00C2DEBD /* LoginViewController.swift */; };
+		345FBB6B1F51D39E008814B3 /* CourseVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345FBB6A1F51D39E008814B3 /* CourseVariant.swift */; };
 		3466E1191E67190F0091CE2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3466E1181E67190F0091CE2B /* User.swift */; };
 		347168571E5476EE0084036B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347168561E5476EE0084036B /* String.swift */; };
 		347168591E54E29B0084036B /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347168581E54E29B0084036B /* AccountTableViewController.swift */; };
@@ -54,6 +55,7 @@
 		34509EF71E4FF44600C2DEBD /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		34509EF91E4FF45300C2DEBD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34509EFD1E4FF46C00C2DEBD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		345FBB6A1F51D39E008814B3 /* CourseVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseVariant.swift; sourceTree = "<group>"; };
 		3466E1181E67190F0091CE2B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		347168561E5476EE0084036B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		347168581E54E29B0084036B /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				34317DD01F438197002E0670 /* ProgramCode.swift */,
 				3466E1181E67190F0091CE2B /* User.swift */,
 				34317DD41F438F4A002E0670 /* Variant.swift */,
+				345FBB6A1F51D39E008814B3 /* CourseVariant.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -219,6 +222,9 @@
 		34509ED01E4FF3EA00C2DEBD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					3,
+				);
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Andza Os";
@@ -330,6 +336,7 @@
 				34509EF41E4FF42F00C2DEBD /* AlertManager.swift in Sources */,
 				34509EF81E4FF44600C2DEBD /* Localized.swift in Sources */,
 				34509EF61E4FF43B00C2DEBD /* NetworkManager.swift in Sources */,
+				345FBB6B1F51D39E008814B3 /* CourseVariant.swift in Sources */,
 				34317DCA1F422A1C002E0670 /* CourseSettingsTableViewController.swift in Sources */,
 				347D01AF1E5127CD004428C8 /* DashboardTableViewController.swift in Sources */,
 				34509EFA1E4FF45300C2DEBD /* Constants.swift in Sources */,

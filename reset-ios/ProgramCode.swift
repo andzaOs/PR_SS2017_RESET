@@ -12,31 +12,35 @@ import SwiftyJSON
 
 class ProgramCode {
     
+    var code: String?
     var value: String?
     var type: String?
     
     
     init() {
         
+        self.code = ""
         self.value = ""
         self.type = ""
     }
     
-    required init?(value: String?, type: String?) {
+    required init?(code: String?, value: String?, type: String?) {
         
+        self.code = code
         self.value = value
         self.type = type
     }
     
     convenience init?(json: JSON) {
         
-        guard let value = json["value"].string,
+        guard let code = json["code"].string,
+              let value = json["value"].string,
               let type = json["type"].string
             
             else {
                 return nil
             }
         
-        self.init(value: value, type: type)
+        self.init(code: code, value: value, type: type)
     }
 }

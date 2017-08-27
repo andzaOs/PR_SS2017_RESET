@@ -24,7 +24,6 @@ class EnrollTableViewController: UITableViewController {
                 
                 self.courses = courses!
                 
-                
                 Courses.sharedInstance.setCourses(courses: courses!)
                 Courses.sharedInstance.setSectionesByCourse()
                 
@@ -35,7 +34,7 @@ class EnrollTableViewController: UITableViewController {
                 
             } else {
                 
-                print("Log: " + String(describing: error))
+                print("Logg: " + String(describing: error))
                 
             }
             
@@ -83,10 +82,12 @@ class EnrollTableViewController: UITableViewController {
         if(course.status == "enrolled") {
             
             cell.backgroundColor = UIColor.green
+            cell.isUserInteractionEnabled = false
             
         } else if(course.status == "on waiting list") {
             
             cell.backgroundColor = UIColor.yellow
+            cell.isUserInteractionEnabled = false
             
         } else {
             
@@ -94,20 +95,21 @@ class EnrollTableViewController: UITableViewController {
             
         }
         
-        print("Course type: " + course.type!)
         return cell
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print(indexPath.row)
-        selectedCourse = self.courses[indexPath.row]
+        let coursesPerType =  Courses.sharedInstance.getCoursesPerType()
         
-        print("Selected course type: " + selectedCourse.type!)
+        let type = sectiones[indexPath.section]
         
+        if let course = coursesPerType[type]?[indexPath.row] {
+            selectedCourse = course
+        }
+    
         self.performSegue(withIdentifier: "courseSettingsView", sender: self)
-        
         
     }
     

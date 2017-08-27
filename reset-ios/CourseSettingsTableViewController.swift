@@ -11,15 +11,23 @@ import UIKit
 class CourseSettingsTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var course : Course?
-    var variants: [String] = []
-    var programCodes: [String] = []
+    var variants: [Variant] = []
+    var programCodes: [ProgramCode] = []
+    var courseVariant = CourseVariant()
+    var institutes = [String]()
+    var pickerViewProgramCodeHidden = true
+    var pickerViewCourseVariantHidden = true
+    var pickerViewInstituteHidden = true
 
     @IBOutlet var tableViewCourse: UITableView!
     @IBOutlet weak var lblCourse: UILabel!
     @IBOutlet weak var lblProgramCode: UILabel!
-    @IBOutlet weak var pickerViewProgramCode: UIPickerView!
+    @IBOutlet weak var lblInstitute: UILabel!
     @IBOutlet weak var lblCourseVariant: UILabel!
+    
+    @IBOutlet weak var pickerViewProgramCode: UIPickerView!
     @IBOutlet weak var pickerViewCourseVariant: UIPickerView!
+    @IBOutlet weak var pickerViewInstitute: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +41,44 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
                 Variants.sharedInstance.setVariants(variants: variants!)
                 
                 self.variants = Variants.sharedInstance.getVarianst()
+                self.lblCourseVariant.text = self.variants[0].name
+                self.pickerViewCourseVariant.reloadAllComponents()
                 
-                print("Log1: " + String(describing: self.variants.count))
+                NetworkManager.sharedInstance.GetCourseVariantMapping(courseId: (self.course?.id)!, variantId: (variants?[0].id)!){ mapping, error in
+                    
+                    if(error == nil) {
+                        
+                        self.courseVariant = mapping!
+                        self.institutes = self.courseVariant.institutes! as! [String]
+                        self.lblInstitute.text = self.institutes[0]
+                        self.pickerViewInstitute.reloadAllComponents()
+                        
+                        
+                        self.tableView.reloadData()
+
+                        
+                        if(self.variants.count == 1) {
+                            
+                            let indexVariant = IndexPath(row: 3, section: 0)
+                            let cell = self.tableView.dequeueReusableCell(withIdentifier: "Variant Cell", for: indexVariant)
+                            cell.isUserInteractionEnabled = false
+                            
+                        }
+                        
+                        if(self.institutes.count == 1) {
+                            
+                            let indexInstitute = IndexPath(row: 5, section: 0)
+                            let cell = self.tableView.dequeueReusableCell(withIdentifier: "Institute Cell", for: indexInstitute)
+                            cell.isUserInteractionEnabled = false
+                            
+                        }
+                        
+                    } else {
+                        
+                        print("Log: " + String(describing: error))
+                        
+                    }
+                }
                 
             } else {
                 
@@ -44,14 +88,15 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
             
         }
         
-        lblCourse.text = (course?.type)! + " " + String(describing: (course?.semester)!) + " " + String(describing: (course?.year)!)
-        lblProgramCode.text = programCodes[0]
-        lblCourseVariant.text = ""
+        var semester = "S"
+        if(course?.semester?.lowercased() == "winter") {
+            semester = "W"
+        }
         
-        self.tableViewCourse.reloadData()
-        pickerViewCourseVariant.delegate = self
-        self.pickerViewCourseVariant.reloadAllComponents()
-    
+        lblCourse.text = (course?.type)! + " " + semester + String(describing: (course?.year)!)
+        lblProgramCode.text = programCodes[0].code
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,17 +113,52 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("Log: " + String(describing: variants.count))
+        var index = IndexPath(row: 2, section: 0)
+        
+        if indexPath.row == 1 && pickerViewProgramCode.isHidden {
+            togglePickerViewProgramCode()
+        } else if indexPath.row == 3 && pickerViewCourseVariant.isHidden && variants.count > 1 {
+            togglePickerViewCourseVariant()
+            index = IndexPath(row: 4, section: 0)
+        } else if indexPath.row == 5 && pickerViewInstitute.isHidden && institutes.count > 1 {
+            togglePickerViewInstitute()
+            index = IndexPath(row: 6, section: 0)
+        }
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.tableView.selectRow(at: index, animated: true, scrollPosition: UITableViewScrollPosition.bottom)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 2 && pickerViewProgramCode.isHidden || indexPath.row == 4 && pickerViewCourseVariant.isHidden ||
+            indexPath.row == 6 && pickerViewInstitute.isHidden {
+            return 0.0
+        } else if indexPath.row == 2 && !pickerViewProgramCode.isHidden || indexPath.row == 4 && !pickerViewCourseVariant.isHidden
+        || indexPath.row == 6 && !pickerViewInstitute.isHidden {
+            return 110.0
+        }
+        
+        return 45.0
+    }
+    
+        
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView == pickerViewProgramCode {
             
-            return programCodes[row]
+            let programName = programCodes[row].code! + " " + programCodes[row].value!
+            
+            return programName
+            
+        } else if pickerView == pickerViewCourseVariant {
+            
+            return variants[row].name
             
         } else {
             
-            return variants[row]
+            return institutes[row]
+            
         }
         
     }
@@ -89,9 +169,13 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
             
             return programCodes.count
             
-        } else {
+        } else if pickerView == pickerViewCourseVariant {
             
             return variants.count
+            
+        } else {
+            
+            return institutes.count
         }
     }
     
@@ -99,14 +183,132 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
         
         if pickerView == pickerViewProgramCode {
             
-            lblProgramCode.text = programCodes[row]
+            lblProgramCode.text = programCodes[row].code!
+            
+            togglePickerViewProgramCode()
+            
+        } else if pickerView == pickerViewCourseVariant {
+            
+            lblCourseVariant.text = variants[row].name
+            
+            NetworkManager.sharedInstance.GetCourseVariantMapping(courseId: (course?.id)!, variantId: (variants[row].id)!){ mapping, error in
+                
+                if(error == nil) {
+                    
+                    self.courseVariant = mapping!
+                    self.institutes = self.courseVariant.institutes! as! [String]
+                    self.pickerViewInstitute.reloadAllComponents()
+                    self.lblInstitute.text = self.institutes[0]
+                    
+                    self.tableView.reloadData()
+                    
+                    let indexInstitute = IndexPath(row: 5, section: 0)
+                    let cell = self.tableView.dequeueReusableCell(withIdentifier: "Institute Cell", for: indexInstitute)
+                    
+                    if(self.institutes.count > 1) {
+                        
+                        cell.isUserInteractionEnabled = true
+                        
+                    } else {
+                        
+                        cell.isUserInteractionEnabled = false
+                    }
+                    
+                    
+                } else {
+                    
+                    print("Log: " + String(describing: error))
+                    
+                }
+            }
+            
+            togglePickerViewCourseVariant()
             
         } else {
             
-            lblCourseVariant.text = variants[row]
+            self.lblInstitute.text = institutes[row]
+            togglePickerViewInstitute()
         }
-
         
+        self.tableView.reloadData()
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var label = view as! UILabel!
+        if label == nil {
+            label = UILabel()
+        }
+        var data = ""
+        
+        if pickerView == pickerViewProgramCode {
+            
+            data = programCodes[row].code! + " " + programCodes[row].value!
+            let title = NSAttributedString(string: data, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightRegular)])
+            label?.attributedText = title
+            
+        } else if pickerView == pickerViewCourseVariant {
+            
+            data = variants[row].name!
+            let title = NSAttributedString(string: data, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightRegular)])
+            label?.attributedText = title
+
+
+        } else {
+            
+            data = institutes[row]
+            let title = NSAttributedString(string: data, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightRegular)])
+            label?.attributedText = title
+            
+        }
+        
+        label?.textAlignment = .center
+        return label!
+        
+    }
+    
+    
+    
+    func togglePickerViewProgramCode() {
+        
+        pickerViewProgramCodeHidden = !pickerViewProgramCodeHidden
+        
+        if(pickerViewProgramCodeHidden) {
+            pickerViewProgramCode.isHidden = true
+        } else {
+            pickerViewProgramCode.isHidden = false
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+    }
+    
+    func togglePickerViewCourseVariant() {
+        
+        pickerViewCourseVariantHidden = !pickerViewCourseVariantHidden
+        
+        if(pickerViewCourseVariantHidden) {
+            pickerViewCourseVariant.isHidden = true
+        } else {
+            pickerViewCourseVariant.isHidden = false
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+    }
+    
+    func togglePickerViewInstitute() {
+        
+        pickerViewInstituteHidden = !pickerViewInstituteHidden
+        
+        if(pickerViewInstituteHidden) {
+            pickerViewInstitute.isHidden = true
+        } else {
+            pickerViewInstitute.isHidden = false
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
         
     }
 }

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class ProgramCodes{
     
-    var programCodes = [String]()
+    var programCodes = [ProgramCode]()
     
     
     init() {
@@ -29,7 +29,7 @@ class ProgramCodes{
                         
                         if let programCode = ProgramCode(json: element) {
                             
-                            self.programCodes.append(programCode.value!)
+                            self.programCodes.append(programCode)
                             
                         }
                     }
@@ -44,7 +44,8 @@ class ProgramCodes{
         
     }
     
-    func getProgramCodes() -> [String] {
+    
+    func getProgramCodes() -> [ProgramCode] {
         return programCodes
     }
     
