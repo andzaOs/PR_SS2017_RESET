@@ -14,4 +14,4 @@
 
 ## Task Description
 
- iOS app that covers all RESET functionalities only for students 
+ iOS app that covers all RESET (https://reset.inso.tuwien.ac.at) functionalities only for students 
