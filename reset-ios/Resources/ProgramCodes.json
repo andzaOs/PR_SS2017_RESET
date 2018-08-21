@@ -1,0 +1,76 @@
+[
+    {
+        "code": "033 526",
+        "value": "Business Informatics",
+        "type": "Bachelor"
+    },
+    {
+        "code": "033 532",
+        "value": "Media Informatics and Visual Computing",
+        "type": "Bachelor"
+    },
+    {
+        "code": "033 533",
+        "value": "Medical Informatics",
+        "type": "Bachelor"
+    },
+    {
+        "code": "033 534",
+        "value": "Software & Information Engineering",
+        "type": "Bachelor"
+    },
+    {
+        "code": "033 535",
+        "value": "Computer Engineering",
+        "type": "Bachelor"
+    },
+    {
+        "code": "066 011",
+        "value": "Computational Logic (Erasmus-Mundus)",
+        "type": "Master"
+    },
+    {
+        "code": "066 926",
+        "value": "Business Informatics",
+        "type": "Master"
+    },
+    {
+        "code": "066 931",
+        "value": "Logic and Computation",
+        "type": "Master"
+    },
+    {
+        "code": "066 932",
+        "value": "Visual Computing",
+        "type": "Master"
+    },
+    {
+        "code": "066 935",
+        "value": "Media Informatics",
+        "type": "Master"
+    },
+    {
+        "code": "066 936",
+        "value": "Medical Informatics",
+        "type": "Master"
+    },
+    {
+        "code": "066 937 ",
+        "value": "Software Engineering & Internet Computing",
+        "type": "Master"
+    },
+    {
+        "code": "066 938",
+        "value": "Computer Engineering",
+        "type": "Master"
+    },
+    {
+        "code": "066 950",
+        "value": "Didactic for Informatics",
+        "type": "Master"
+    },
+    {
+        "code": "Other",
+        "type": "-"
+    }
+]

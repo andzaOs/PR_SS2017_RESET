@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "342DCE0D2043178A0070AB61"
+               BuildableName = "reset-iosTests.xctest"
+               BlueprintName = "reset-iosTests"
+               ReferencedContainer = "container:reset-ios.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "342DCE1B20435AB20070AB61"
+               BuildableName = "reset-iosUITests.xctest"
+               BlueprintName = "reset-iosUITests"
+               ReferencedContainer = "container:reset-ios.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

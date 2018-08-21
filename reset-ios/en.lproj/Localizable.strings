@@ -12,3 +12,7 @@
 "settings_bad_input" = "Passwords are not matching!";
 "settings_bad_new_password" = "The new password must contain at least 8 characters, a digit and a special charachter.";
 "settings_bad_old_password" = "Old password is invalid.";
+"undefined_userid" = "User ID is not defined.";
+"enrollment_bad_input" = "All fields are required.";
+"enrollment_good_input" = "Successfully saved.";
+"delete_enrollment_success" = "Successfully disenrolled from course.";
