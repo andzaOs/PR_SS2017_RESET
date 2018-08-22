@@ -17,12 +17,24 @@ class DashboardTableViewController: UITableViewController{
     var user = User()
     var sections: [Int] = [Int]()
     
+    private var mocCourses: [Course] = [Course.init(type: "Test",
+                                                    year: 2018,
+                                                    semester: "IV",
+                                                    enrollmentLimit: 1,
+                                                    startEnrollment: NSDate(),
+                                                    endEnrollment: NSDate(),
+                                                    archived: true,
+                                                    links: NSArray(), id: 1)!]
+    
     @IBAction func btnSettings(_ sender: Any){
-         self.performSegue(withIdentifier: "settingsView", sender: self)
+         //self.performSegue(withIdentifier: "settingsView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AccountTableViewController") as? AccountTableViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+
     }
     
     @IBAction func btnEnroll(_ sender: Any) {
-        self.performSegue(withIdentifier: "enrollView", sender: self)
+        //self.performSegue(withIdentifier: "enrollView", sender: self)
     }
     
     override func viewDidLoad() {
@@ -87,6 +99,7 @@ class DashboardTableViewController: UITableViewController{
         let course = coursesPerYer[indexPath.row]
         cell.textLabel?.text = course.type
         cell.detailTextLabel?.text = ((course.semester?.lowercased())?.capitalizingFirstLetter())! + " semester"
+
         return cell
     }
     
@@ -96,17 +109,21 @@ class DashboardTableViewController: UITableViewController{
         if let course = coursesPerYear[Int(year)]?[indexPath.row] {
             selectedCourse = course
         }
-        self.performSegue(withIdentifier: "courseDetailsView", sender: self)
+        //self.performSegue(withIdentifier: "courseDetailsView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseDetailsTableViewController") as? CourseDetailsTableViewController
+        vc?.course = selectedCourse
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let nav = segue.destination as! UINavigationController
+        /*let nav = segue.destination as! UINavigationController
         if(segue.identifier == "settingsView") {
             let destinationVC = nav.topViewController as! AccountTableViewController
             destinationVC.user = user
         } else if(segue.identifier == "courseDetailsView") {
             let destinationVC = nav.topViewController as! CourseDetailsTableViewController
             destinationVC.course = selectedCourse
-        }
+        }*/
     }
+    
 }

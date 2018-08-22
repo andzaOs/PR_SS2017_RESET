@@ -17,8 +17,7 @@ class EnrollTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableViewCourses.reloadData()
-    
+        //self.tableViewCourses.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

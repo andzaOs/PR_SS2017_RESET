@@ -75,7 +75,4 @@ class AccountTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func btnBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

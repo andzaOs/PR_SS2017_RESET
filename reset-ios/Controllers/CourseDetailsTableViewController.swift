@@ -30,11 +30,17 @@ class CourseDetailsTableViewController: UITableViewController {
     }
 
     @IBAction func btnModals(_ sender: Any) {
-        self.performSegue(withIdentifier: "detailsSettingsView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseSettingsTableViewController") as? CourseSettingsTableViewController
+        vc?.course = course
+        self.navigationController?.pushViewController(vc!, animated: true)
+        //self.performSegue(withIdentifier: "detailsSettingsView", sender: self)
     }
     
     @IBAction func btnSlots(_ sender: Any) {
-        self.performSegue(withIdentifier: "entrytestView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EntrytestTableViewController") as? EntrytestTableViewController
+        vc?.course = course
+        self.navigationController?.pushViewController(vc!, animated: true)
+        //self.performSegue(withIdentifier: "entrytestView", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {

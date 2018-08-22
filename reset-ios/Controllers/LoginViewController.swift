@@ -27,7 +27,9 @@ class LoginTableViewController: UITableViewController, UITextFieldDelegate {
             
             NetworkManager.sharedInstance.Login(username: txtUsername.text!, password: txtPassword.text!, controler: controler) { responseObject, error in
                 if(error == nil) {
-                    self.performSegue(withIdentifier: "dashboardView", sender: self)
+                    //self.performSegue(withIdentifier: "dashboardView", sender: self)
+             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DashboardTableViewControllerNavigation")
+             self.present(vc, animated: true, completion: nil)
                 } else {
                     print("Log: " + String(describing: error))
                 }
