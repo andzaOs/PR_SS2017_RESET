@@ -52,13 +52,10 @@ class AccountTableViewController: UITableViewController {
                 print("Log: " + String(describing: error))
             }
         }
-            
     }
-        
-    
     
     @IBAction func btnLogout(_ sender: Any) {
-        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+        //TODO
         
     }
     override func viewDidLoad() {
@@ -73,9 +70,5 @@ class AccountTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func btnBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
     }
 }

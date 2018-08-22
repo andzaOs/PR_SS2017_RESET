@@ -58,9 +58,7 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
                         self.btnEnrollment.setTitle("",for: .normal)
                     
                         self.tableViewCourse.allowsSelection = false
-                    
-                        _ = self.navigationController?.popToRootViewController(animated: true)
-                    
+                                        
                 } else {
                     print("Log: " + String(describing: error))
                 }
@@ -146,12 +144,6 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    
-    @IBAction func btnBack(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -310,8 +302,6 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
         return label!
         
     }
-    
-    
     
     func togglePickerViewProgramCode() {
         

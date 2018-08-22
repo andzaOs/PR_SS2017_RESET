@@ -17,8 +17,10 @@ class EnrollTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableViewCourses.reloadData()
-    
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseSettingsTableViewController") as? CourseSettingsTableViewController
+        vc?.course = selectedCourse
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,22 +127,6 @@ class EnrollTableViewController: UITableViewController {
         if let course = coursesPerType[type]?[indexPath.row] {
             selectedCourse = course
         }
-        self.performSegue(withIdentifier: "courseSettingsView", sender: self)
-        
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if(segue.identifier == "courseSettingsView") {
-            let nav = segue.destination as! UINavigationController
-            let destinationVC = nav.topViewController as! CourseSettingsTableViewController
-            destinationVC.course = selectedCourse
-        }
-    }
-    
-    @IBAction func btnBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
- 
 
 }

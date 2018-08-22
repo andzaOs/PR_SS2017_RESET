@@ -18,11 +18,14 @@ class DashboardTableViewController: UITableViewController{
     var sections: [Int] = [Int]()
     
     @IBAction func btnSettings(_ sender: Any){
-         self.performSegue(withIdentifier: "settingsView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AccountTableViewController") as? AccountTableViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+        vc?.user = user
     }
     
     @IBAction func btnEnroll(_ sender: Any) {
-        self.performSegue(withIdentifier: "enrollView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EnrollTableViewController") as? EnrollTableViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     override func viewDidLoad() {
@@ -96,17 +99,9 @@ class DashboardTableViewController: UITableViewController{
         if let course = coursesPerYear[Int(year)]?[indexPath.row] {
             selectedCourse = course
         }
-        self.performSegue(withIdentifier: "courseDetailsView", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let nav = segue.destination as! UINavigationController
-        if(segue.identifier == "settingsView") {
-            let destinationVC = nav.topViewController as! AccountTableViewController
-            destinationVC.user = user
-        } else if(segue.identifier == "courseDetailsView") {
-            let destinationVC = nav.topViewController as! CourseDetailsTableViewController
-            destinationVC.course = selectedCourse
-        }
+        //self.performSegue(withIdentifier: "courseDetailsView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseDetailsTableViewController") as? CourseDetailsTableViewController
+        vc?.course = selectedCourse
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

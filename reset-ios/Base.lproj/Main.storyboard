@@ -225,9 +225,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableViewCourses" destination="MTW-9N-yZQ" id="IDA-de-M7f"/>
-                        <segue destination="mkl-7D-8hJ" kind="presentation" identifier="settingsView" id="9QU-Zs-jhE"/>
-                        <segue destination="3Cc-j7-qW8" kind="presentation" identifier="enrollView" id="WjL-sR-Zca"/>
-                        <segue destination="B1y-Dy-JJE" kind="presentation" identifier="courseDetailsView" id="hRw-tc-fDT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiK-0n-Tky" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -237,7 +234,7 @@
         <!--Account Settings-->
         <scene sceneID="VOs-Ks-SKm">
             <objects>
-                <tableViewController id="d3g-Bu-88V" customClass="AccountTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AccountTableViewController" id="d3g-Bu-88V" customClass="AccountTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Wx7-Tj-kLt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -482,7 +479,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNd-Dq-eFA">
-                                                    <rect key="frame" x="124" y="6" width="320" height="30"/>
+                                                    <rect key="frame" x="0.0" y="6" width="320" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="320" id="Aui-yM-2lU"/>
                                                         <constraint firstAttribute="height" constant="30" id="Qqf-ho-Rve"/>
@@ -511,11 +508,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="yy4-yV-g34"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Account Settings" id="woO-L6-bU7">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="RKd-P6-x82">
-                            <connections>
-                                <action selector="btnBack:" destination="d3g-Bu-88V" id="xDp-h3-Goc"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="RKd-P6-x82"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cellEmail" destination="YKA-Nw-xGi" id="Fnc-xK-OhN"/>
@@ -526,18 +519,16 @@
                         <outlet property="txtNewPassword" destination="r5W-fm-mmm" id="Rbi-r5-nBT"/>
                         <outlet property="txtOldPassword" destination="ZqW-vu-iPz" id="PFO-9Y-cvH"/>
                         <outlet property="txtRepeatedPassword" destination="cQN-Mg-cQy" id="mBX-4K-FkP"/>
-                        <segue destination="91v-pc-eHs" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="T5y-Lf-Qh3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fF-qJ-Koq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="91v-pc-eHs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4443.75" y="55.985915492957744"/>
+            <point key="canvasLocation" x="3263" y="52"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iaP-U1-CmZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="5uZ-Vt-zLf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DashboardTableViewControllerNavigation" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="5uZ-Vt-zLf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pwN-lF-nmw">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -559,7 +550,7 @@
         <!--Course Details-->
         <scene sceneID="L6c-1x-rwR">
             <objects>
-                <tableViewController title="Course Details" id="MCF-4p-Vel" customClass="CourseDetailsTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CourseDetailsTableViewController" title="Course Details" id="MCF-4p-Vel" customClass="CourseDetailsTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableViewCourseDetails" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="VMh-JQ-aI0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -859,29 +850,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Details" id="i9c-0s-NgX">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="iAa-pu-fQ9">
-                            <connections>
-                                <action selector="btnBack:" destination="MCF-4p-Vel" id="A8m-sf-9sr"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="iAa-pu-fQ9"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cellEnrolled" destination="vde-GG-z99" id="P4m-y5-zEM"/>
                         <outlet property="cellVariant" destination="oq2-TW-6Hj" id="7BN-LP-pnc"/>
                         <outlet property="imgEnrolled" destination="PHC-PV-raN" id="Jt9-Ve-DcO"/>
                         <outlet property="lblEnrolled" destination="U90-oK-eVP" id="7Zd-4y-xC9"/>
-                        <segue destination="skQ-Ol-JSf" kind="presentation" identifier="detailsSettingsView" id="SFn-Cb-GCD"/>
-                        <segue destination="NFf-Ht-H5O" kind="presentation" identifier="entrytestView" id="r8U-OC-Iq1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8c-BH-JxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4440" y="-679.22535211267609"/>
+            <point key="canvasLocation" x="2498" y="-677"/>
         </scene>
         <!--Entrytest Time Slots-->
         <scene sceneID="A0Z-Tn-dBY">
             <objects>
-                <tableViewController id="qg6-wn-Zcm" customClass="EntrytestTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EntrytestTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qg6-wn-Zcm" customClass="EntrytestTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mMB-P2-56h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -947,47 +932,19 @@
                             <outlet property="delegate" destination="qg6-wn-Zcm" id="5SP-MJ-C9Y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Entrytest Time Slots" id="MAF-Mc-8th">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="u4B-AK-wyk">
-                            <connections>
-                                <action selector="btnBack:" destination="qg6-wn-Zcm" id="0Sa-4e-XX1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Entrytest Time Slots" id="MAF-Mc-8th"/>
                     <connections>
                         <outlet property="tableViewSlots" destination="mMB-P2-56h" id="hPk-fb-fRI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34a-n4-e35" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6435" y="-679.22535211267609"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZM2-vg-a5Z">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="mkl-7D-8hJ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NgJ-BA-vZo">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="O95-bp-dKH">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="d3g-Bu-88V" kind="relationship" relationship="rootViewController" id="1FH-WG-O0s"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tAM-F4-D58" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3446.25" y="55.985915492957744"/>
+            <point key="canvasLocation" x="3263" y="-677"/>
         </scene>
         <!--Course Overview-->
         <scene sceneID="4WJ-lE-fxS">
             <objects>
-                <tableViewController id="qUH-vZ-hjS" customClass="EnrollTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EnrollTableViewController" id="qUH-vZ-hjS" customClass="EnrollTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="EOh-5t-ANn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1025,25 +982,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Overview" id="d9q-hq-66q">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="mTG-ZO-Vq7">
-                            <connections>
-                                <action selector="btnBack:" destination="qUH-vZ-hjS" id="r2k-iO-wlx"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="mTG-ZO-Vq7"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableViewCourses" destination="EOh-5t-ANn" id="XsQ-dV-Rib"/>
-                        <segue destination="skQ-Ol-JSf" kind="presentation" identifier="courseSettingsView" id="7yf-uT-DPC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZ3-tU-Ugq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3446" y="788"/>
+            <point key="canvasLocation" x="2498" y="777"/>
         </scene>
         <!--Course Settings-->
         <scene sceneID="N5A-Ya-ZIg">
             <objects>
-                <tableViewController id="SVq-S7-1rQ" customClass="CourseSettingsTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CourseSettingsTableViewController" id="SVq-S7-1rQ" customClass="CourseSettingsTableViewController" customModule="reset_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iNF-Jl-gmb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1248,7 +1200,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajY-5t-oKS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.47058823529999999" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Enroll">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1275,11 +1227,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Settings" id="vy1-QO-H9A">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="v7g-hd-VZf">
-                            <connections>
-                                <action selector="btnBack:" destination="SVq-S7-1rQ" id="yNn-yb-AHG"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="v7g-hd-VZf"/>
                     </navigationItem>
                     <connections>
                         <outlet property="btnEnrollment" destination="ajY-5t-oKS" id="MwI-a4-dM4"/>
@@ -1295,79 +1243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSY-Cy-FjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5439.375" y="785.91549295774644"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Es5-yc-wQW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Cc-j7-qW8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="57n-X9-tvc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qUH-vZ-hjS" kind="relationship" relationship="rootViewController" id="yJL-1O-WeZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LWS-Qa-dab" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2498" y="788"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="19h-Oi-LI7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="skQ-Ol-JSf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NDZ-SD-z3v">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SVq-S7-1rQ" kind="relationship" relationship="rootViewController" id="nBE-tf-U2O"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UY3-Jq-n8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4443.75" y="786.97183098591552"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QJV-qy-mtn">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B1y-Dy-JJE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrz-p6-wkM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="MCF-4p-Vel" kind="relationship" relationship="rootViewController" id="yY1-Lx-Gh5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OYu-bx-DU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3446" y="-677"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Mcg-lM-g2P">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NFf-Ht-H5O" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qeD-dl-K35">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qg6-wn-Zcm" kind="relationship" relationship="rootViewController" id="xbx-t0-49e"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fez-MW-HjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5437.5" y="-679.22535211267609"/>
+            <point key="canvasLocation" x="3263" y="767"/>
         </scene>
     </scenes>
     <resources>
@@ -1385,7 +1261,4 @@
         <image name="time" width="16" height="16"/>
         <image name="x" width="16" height="16"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="SFn-Cb-GCD"/>
-    </inferredMetricsTieBreakers>
 </document>

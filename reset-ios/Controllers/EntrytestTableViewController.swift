@@ -23,7 +23,7 @@ class EntrytestTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.setUp()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableViewSlots.reloadData()
@@ -76,15 +76,11 @@ class EntrytestTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        print(EntrytestSlots.sharedInstance.getSections().count)
         return EntrytestSlots.sharedInstance.getSections().count
     }
     
     override func tableView( _ tableView : UITableView,  titleForHeaderInSection section: Int)->String {
-        
-        while (!self.setted) {
-            self.setUp()
-        }
-        
         let title = String(self.sections[section])
         return title
     }
@@ -116,12 +112,6 @@ class EntrytestTableViewController: UITableViewController {
         
         cell.textLabel?.text = slot.location
         return cell
-    }
-
-    
-    @IBAction func btnBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
     }
     
 }

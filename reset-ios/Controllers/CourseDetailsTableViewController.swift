@@ -30,25 +30,16 @@ class CourseDetailsTableViewController: UITableViewController {
     }
 
     @IBAction func btnModals(_ sender: Any) {
-        self.performSegue(withIdentifier: "detailsSettingsView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseSettingsTableViewController") as? CourseSettingsTableViewController
+        vc?.course = course
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func btnSlots(_ sender: Any) {
-        self.performSegue(withIdentifier: "entrytestView", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EntrytestTableViewController") as? EntrytestTableViewController
+        vc?.course = course
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if(segue.identifier == "detailsSettingsView") {
-            let nav = segue.destination as! UINavigationController
-            let destinationVC = nav.topViewController as! CourseSettingsTableViewController
-            destinationVC.course = course
-        } else if(segue.identifier == "entrytestView") {
-            let nav = segue.destination as! UINavigationController
-            let destinationVC = nav.topViewController as! EntrytestTableViewController
-            destinationVC.course = course
-        }
-    }
-    
     
     override func viewDidLoad() {
         
@@ -79,11 +70,5 @@ class CourseDetailsTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func btnBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-
-    }
-    
+    }    
 }
