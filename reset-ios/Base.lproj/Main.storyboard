@@ -507,9 +507,7 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="yy4-yV-g34"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Account Settings" id="woO-L6-bU7">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="RKd-P6-x82"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Account Settings" id="woO-L6-bU7"/>
                     <connections>
                         <outlet property="cellEmail" destination="YKA-Nw-xGi" id="Fnc-xK-OhN"/>
                         <outlet property="lblFirstName" destination="HZA-qe-0bg" id="8Ll-0X-bc6"/>
@@ -849,9 +847,7 @@
                             <outlet property="delegate" destination="MCF-4p-Vel" id="gjo-uQ-bzN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Course Details" id="i9c-0s-NgX">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="iAa-pu-fQ9"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Course Details" id="i9c-0s-NgX"/>
                     <connections>
                         <outlet property="cellEnrolled" destination="vde-GG-z99" id="P4m-y5-zEM"/>
                         <outlet property="cellVariant" destination="oq2-TW-6Hj" id="7BN-LP-pnc"/>
@@ -981,9 +977,7 @@
                             <outlet property="delegate" destination="qUH-vZ-hjS" id="Ukr-uV-WYA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Course Overview" id="d9q-hq-66q">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="mTG-ZO-Vq7"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Course Overview" id="d9q-hq-66q"/>
                     <connections>
                         <outlet property="tableViewCourses" destination="EOh-5t-ANn" id="XsQ-dV-Rib"/>
                     </connections>
@@ -1226,9 +1220,7 @@
                             <outlet property="delegate" destination="SVq-S7-1rQ" id="iKv-XQ-fld"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Course Settings" id="vy1-QO-H9A">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="v7g-hd-VZf"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Course Settings" id="vy1-QO-H9A"/>
                     <connections>
                         <outlet property="btnEnrollment" destination="ajY-5t-oKS" id="MwI-a4-dM4"/>
                         <outlet property="lblCourse" destination="Ruu-lB-rVU" id="w30-a8-trZ"/>
