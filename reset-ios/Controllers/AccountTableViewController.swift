@@ -22,6 +22,17 @@ class AccountTableViewController: UITableViewController {
     
     var user : User?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = Localized.localize(key: "account_settings_title")
+        lblFirstName.text = self.user?.firstName
+        lblLastName.text = self.user?.lastName
+        lblUsername.text = self.user?.username
+        txtEmail.text = self.user?.email
+        txtEmail.isUserInteractionEnabled = true
+        cellEmail.isUserInteractionEnabled = true
+    }
+    
     @IBAction func btnUpdate(_ sender: Any) { 
         
         
@@ -58,16 +69,7 @@ class AccountTableViewController: UITableViewController {
         //TODO
         
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        lblFirstName.text = self.user?.firstName
-        lblLastName.text = self.user?.lastName
-        lblUsername.text = self.user?.username
-        txtEmail.text = self.user?.email
-        txtEmail.isUserInteractionEnabled = true
-        cellEmail.isUserInteractionEnabled = true
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

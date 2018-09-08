@@ -45,7 +45,6 @@ class CourseEnrollment {
         }
         
         self.init(preferredInstitute: preferredInstitute, programCode: programCode, variantId: variantId, isOnWaitingList: isOnWaitingList, courseId: courseId)
-        
     }
 }
 

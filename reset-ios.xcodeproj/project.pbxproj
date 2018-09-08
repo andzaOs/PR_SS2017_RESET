@@ -16,7 +16,7 @@
 		342DCE112043178A0070AB61 /* reset_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342DCE102043178A0070AB61 /* reset_iosTests.swift */; };
 		342DCE1F20435AB20070AB61 /* reset_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342DCE1E20435AB20070AB61 /* reset_iosUITests.swift */; };
 		342DCE27204B448A0070AB61 /* CourseDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342DCE26204B448A0070AB61 /* CourseDetailsTableViewController.swift */; };
-		342EE38C1EA4F03900F213CD /* EnrollTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342EE38B1EA4F03900F213CD /* EnrollTableViewController.swift */; };
+		342EE38C1EA4F03900F213CD /* CourseOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342EE38B1EA4F03900F213CD /* CourseOverviewViewController.swift */; };
 		34317DCA1F422A1C002E0670 /* CourseSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34317DC91F422A1C002E0670 /* CourseSettingsTableViewController.swift */; };
 		34317DCD1F438146002E0670 /* ProgramCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 34317DCC1F438146002E0670 /* ProgramCodes.json */; };
 		34317DD11F438197002E0670 /* ProgramCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34317DD01F438197002E0670 /* ProgramCode.swift */; };
@@ -41,11 +41,15 @@
 		347D01AF1E5127CD004428C8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347D01AE1E5127CD004428C8 /* DashboardTableViewController.swift */; };
 		348CCAD01E5267CC00F1C26A /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CCACF1E5267CC00F1C26A /* Course.swift */; };
 		348CCAD21E53678A00F1C26A /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CCAD11E53678A00F1C26A /* Courses.swift */; };
-		B9776A8C210A5513008A9DEB /* EntrytestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9776A8B210A5513008A9DEB /* EntrytestTableViewController.swift */; };
-		B9776A8E210A6298008A9DEB /* EntrytestNetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9776A8D210A6298008A9DEB /* EntrytestNetManager.swift */; };
+		B9280347213B13D100CF8755 /* Entrytest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9280346213B13D100CF8755 /* Entrytest.swift */; };
+		B9280349213B21D900CF8755 /* CourseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9280348213B21D900CF8755 /* CourseDetails.swift */; };
+		B928034C213B55AB00CF8755 /* EntryTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928034B213B55AB00CF8755 /* EntryTestManager.swift */; };
+		B928034E213B6B2600CF8755 /* EntrytestEnrollment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928034D213B6B2600CF8755 /* EntrytestEnrollment.swift */; };
 		B9776A90210A6770008A9DEB /* EntrytestSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9776A8F210A6770008A9DEB /* EntrytestSlot.swift */; };
-		B9776A92210B82E2008A9DEB /* CourseSettingsNetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9776A91210B82E2008A9DEB /* CourseSettingsNetManager.swift */; };
+		B9776A92210B82E2008A9DEB /* CourseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9776A91210B82E2008A9DEB /* CourseSettings.swift */; };
 		B9776A96210CFAE7008A9DEB /* EntrytestSlots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9776A95210CFAE7008A9DEB /* EntrytestSlots.swift */; };
+		B9F8A37721374F7A00B14214 /* EntryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A37621374F7A00B14214 /* EntryTestViewController.swift */; };
+		B9F8A379213755F200B14214 /* EntryTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A378213755F200B14214 /* EntryTestTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +82,7 @@
 		342DCE1E20435AB20070AB61 /* reset_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reset_iosUITests.swift; sourceTree = "<group>"; };
 		342DCE2020435AB20070AB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		342DCE26204B448A0070AB61 /* CourseDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailsTableViewController.swift; sourceTree = "<group>"; };
-		342EE38B1EA4F03900F213CD /* EnrollTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollTableViewController.swift; sourceTree = "<group>"; };
+		342EE38B1EA4F03900F213CD /* CourseOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseOverviewViewController.swift; sourceTree = "<group>"; };
 		34317DC91F422A1C002E0670 /* CourseSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSettingsTableViewController.swift; sourceTree = "<group>"; };
 		34317DCC1F438146002E0670 /* ProgramCodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProgramCodes.json; sourceTree = "<group>"; };
 		34317DD01F438197002E0670 /* ProgramCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramCode.swift; sourceTree = "<group>"; };
@@ -109,11 +113,15 @@
 		348CCAD11E53678A00F1C26A /* Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		A3FE41AEA14DF8046A5BCFAB /* Pods-reset-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reset-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reset-ios/Pods-reset-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B40AECB2CB994A78A18D3E /* Pods-reset-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reset-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-reset-ios/Pods-reset-ios.release.xcconfig"; sourceTree = "<group>"; };
-		B9776A8B210A5513008A9DEB /* EntrytestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrytestTableViewController.swift; sourceTree = "<group>"; };
-		B9776A8D210A6298008A9DEB /* EntrytestNetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrytestNetManager.swift; sourceTree = "<group>"; };
+		B9280346213B13D100CF8755 /* Entrytest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrytest.swift; sourceTree = "<group>"; };
+		B9280348213B21D900CF8755 /* CourseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
+		B928034B213B55AB00CF8755 /* EntryTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTestManager.swift; sourceTree = "<group>"; };
+		B928034D213B6B2600CF8755 /* EntrytestEnrollment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrytestEnrollment.swift; sourceTree = "<group>"; };
 		B9776A8F210A6770008A9DEB /* EntrytestSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrytestSlot.swift; sourceTree = "<group>"; };
-		B9776A91210B82E2008A9DEB /* CourseSettingsNetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSettingsNetManager.swift; sourceTree = "<group>"; };
+		B9776A91210B82E2008A9DEB /* CourseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSettings.swift; sourceTree = "<group>"; };
 		B9776A95210CFAE7008A9DEB /* EntrytestSlots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrytestSlots.swift; sourceTree = "<group>"; };
+		B9F8A37621374F7A00B14214 /* EntryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTestViewController.swift; sourceTree = "<group>"; };
+		B9F8A378213755F200B14214 /* EntryTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTestTableViewCell.swift; sourceTree = "<group>"; };
 		BD0B86C23AF24CB00B228935 /* Pods_reset_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reset_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -245,10 +253,11 @@
 				347D01AE1E5127CD004428C8 /* DashboardTableViewController.swift */,
 				34509EFD1E4FF46C00C2DEBD /* LoginViewController.swift */,
 				347168581E54E29B0084036B /* AccountTableViewController.swift */,
-				342EE38B1EA4F03900F213CD /* EnrollTableViewController.swift */,
+				342EE38B1EA4F03900F213CD /* CourseOverviewViewController.swift */,
 				34317DC91F422A1C002E0670 /* CourseSettingsTableViewController.swift */,
 				342DCE26204B448A0070AB61 /* CourseDetailsTableViewController.swift */,
-				B9776A8B210A5513008A9DEB /* EntrytestTableViewController.swift */,
+				B9F8A37621374F7A00B14214 /* EntryTestViewController.swift */,
+				B9F8A378213755F200B14214 /* EntryTestTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,14 +265,12 @@
 		34509EF11E4FF40700C2DEBD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B928034A213B21E100CF8755 /* Network Managers */,
 				34241BED1F8E25F200800E8D /* Extensions */,
 				34241BEC1F8CF0DF00800E8D /* Models */,
 				34509EF31E4FF42F00C2DEBD /* AlertManager.swift */,
-				B9776A91210B82E2008A9DEB /* CourseSettingsNetManager.swift */,
-				34509EF51E4FF43B00C2DEBD /* NetworkManager.swift */,
 				340478E31E7F2BF4005E031D /* Validations.swift */,
 				34241BE91F8CF01300800E8D /* Paths.swift */,
-				B9776A8D210A6298008A9DEB /* EntrytestNetManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -287,6 +294,8 @@
 				345FBB6A1F51D39E008814B3 /* CourseVariant.swift */,
 				342DCE082041B99A0070AB61 /* CourseEnrollment.swift */,
 				B9776A8F210A6770008A9DEB /* EntrytestSlot.swift */,
+				B9280346213B13D100CF8755 /* Entrytest.swift */,
+				B928034D213B6B2600CF8755 /* EntrytestEnrollment.swift */,
 			);
 			name = Models;
 			path = Models.swift;
@@ -307,6 +316,17 @@
 				B2B40AECB2CB994A78A18D3E /* Pods-reset-ios.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B928034A213B21E100CF8755 /* Network Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B9776A91210B82E2008A9DEB /* CourseSettings.swift */,
+				B9280348213B21D900CF8755 /* CourseDetails.swift */,
+				34509EF51E4FF43B00C2DEBD /* NetworkManager.swift */,
+				B928034B213B55AB00CF8755 /* EntryTestManager.swift */,
+			);
+			path = "Network Managers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,17 +541,22 @@
 				34317DD51F438F4A002E0670 /* Variant.swift in Sources */,
 				342DCE27204B448A0070AB61 /* CourseDetailsTableViewController.swift in Sources */,
 				3466E1191E67190F0091CE2B /* User.swift in Sources */,
+				B9F8A37721374F7A00B14214 /* EntryTestViewController.swift in Sources */,
 				348CCAD21E53678A00F1C26A /* Courses.swift in Sources */,
-				B9776A8C210A5513008A9DEB /* EntrytestTableViewController.swift in Sources */,
 				347168571E5476EE0084036B /* String.swift in Sources */,
 				34241BEA1F8CF01300800E8D /* Paths.swift in Sources */,
-				B9776A92210B82E2008A9DEB /* CourseSettingsNetManager.swift in Sources */,
+				B9776A92210B82E2008A9DEB /* CourseSettings.swift in Sources */,
 				347168591E54E29B0084036B /* AccountTableViewController.swift in Sources */,
 				34317DD11F438197002E0670 /* ProgramCode.swift in Sources */,
-				342EE38C1EA4F03900F213CD /* EnrollTableViewController.swift in Sources */,
+				342EE38C1EA4F03900F213CD /* CourseOverviewViewController.swift in Sources */,
 				348CCAD01E5267CC00F1C26A /* Course.swift in Sources */,
+				B9280347213B13D100CF8755 /* Entrytest.swift in Sources */,
+				B9F8A379213755F200B14214 /* EntryTestTableViewCell.swift in Sources */,
 				34509EFE1E4FF46C00C2DEBD /* LoginViewController.swift in Sources */,
+				B9280349213B21D900CF8755 /* CourseDetails.swift in Sources */,
+				B928034C213B55AB00CF8755 /* EntryTestManager.swift in Sources */,
 				B9776A96210CFAE7008A9DEB /* EntrytestSlots.swift in Sources */,
+				B928034E213B6B2600CF8755 /* EntrytestEnrollment.swift in Sources */,
 				342DCE092041B99A0070AB61 /* CourseEnrollment.swift in Sources */,
 				34241BEF1F8E260900800E8D /* UIColor.swift in Sources */,
 				34241BF21F8E4DDB00800E8D /* UserError.swift in Sources */,
@@ -540,7 +565,6 @@
 				B9776A90210A6770008A9DEB /* EntrytestSlot.swift in Sources */,
 				34509EF81E4FF44600C2DEBD /* Localized.swift in Sources */,
 				34509EF61E4FF43B00C2DEBD /* NetworkManager.swift in Sources */,
-				B9776A8E210A6298008A9DEB /* EntrytestNetManager.swift in Sources */,
 				345FBB6B1F51D39E008814B3 /* CourseVariant.swift in Sources */,
 				34317DCA1F422A1C002E0670 /* CourseSettingsTableViewController.swift in Sources */,
 				347D01AF1E5127CD004428C8 /* DashboardTableViewController.swift in Sources */,

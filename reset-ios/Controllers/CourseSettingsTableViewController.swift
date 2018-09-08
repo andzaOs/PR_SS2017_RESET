@@ -69,6 +69,8 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = Localized.localize(key: "course_settings_title")
+        
         programCodes = ProgramCodes().getProgramCodes()
         
         setUpVariants()
@@ -97,7 +99,7 @@ class CourseSettingsTableViewController: UITableViewController, UIPickerViewData
     }
     
     func setVariant() {
-        CourseSettingsNetManager.sharedInstance.GetCourseEnrollment(courseId: (self.course?.id)!, controler: self) { enrollment, error in
+        CourseSettings.sharedInstance.GetCourseEnrollment(courseId: (self.course?.id)!, controler: self) { enrollment, error in
             var variantId = -1
             if(enrollment != nil) {
                 variantId = (enrollment?.variantId)!

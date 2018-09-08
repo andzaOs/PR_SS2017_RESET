@@ -80,4 +80,22 @@ class EntrytestSlots {
         dateFormatter.dateFormat = "EEEE, dd.MMM.yyyy"
         return dateFormatter.string(from: date as Date)
     }
+    
+    func getSlotDetails(slot: EntrytestSlot) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:ss"
+        let startTime = dateFormatter.string(from: slot.startTime! as Date)
+        let endTime = dateFormatter.string(from: slot.endTime! as Date)
+        return startTime + " - " + endTime
+    }
+    
+    func getChoosenSlotDetails(slot: EntrytestSlot) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MMM.yyyy"
+        let date = dateFormatter.string(from: slot.startTime! as Date)
+        dateFormatter.dateFormat = "HH:ss"
+        let startTime = dateFormatter.string(from: slot.startTime! as Date)
+        let endTime = dateFormatter.string(from: slot.endTime! as Date)
+        return date + " " + startTime + " - " + endTime
+    }
 }

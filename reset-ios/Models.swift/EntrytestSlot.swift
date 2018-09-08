@@ -54,6 +54,7 @@ class EntrytestSlot {
             let entryTestId = json["entryTestId"].int,
             let id = json["id"].int
             
+            
             else {
                 return nil
             }

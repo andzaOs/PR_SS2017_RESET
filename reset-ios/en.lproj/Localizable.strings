@@ -16,3 +16,16 @@
 "enrollment_bad_input" = "All fields are required.";
 "enrollment_good_input" = "Successfully saved.";
 "delete_enrollment_success" = "Successfully disenrolled from course.";
+"git_repo_notfound" = "Could not get any response.";
+
+
+"entrytestslots_note" = "End of enrollment reached, no changes possible.";
+"entrytestslots_title" = "Entrytest Time Slot";
+"entrytestslots_no_slots" = "Enrollment has not yet started. There are currently no timeslots available. Please come back later!";
+
+"dashboard_title" = "Dashboard";
+"account_settings_title" = "Account Settings";
+"course_overview_title" = "Course Overview";
+"course_settings_title" = "Course Settings";
+"course_details_title" = "Course Details";
+"login_title" = "Login";

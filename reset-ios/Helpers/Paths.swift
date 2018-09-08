@@ -68,6 +68,12 @@ class Paths {
     func getEntrytestSlotPerUser(courseId: String, userId: String) -> String {
         return Constants.API.BaseURLCourses + courseId + Constants.API.Users + userId + Constants.API.EntrytestSlots + Constants.API.Token + Token()
     }
+    func getEntrytestById(entrytesId: String) -> String {
+        return Constants.API.BaseURLEntrytest + entrytesId + Constants.API.Token + Token()
+    }
+    func getGitURL(courseId: String, userId: String) -> String {
+        return Constants.API.BaseURLCourses + courseId + Constants.API.Users + userId +  Constants.API.GitRepo + Token()
+    }
     
     
 }

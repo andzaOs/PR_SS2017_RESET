@@ -11,7 +11,7 @@ import Foundation
 struct Constants {
     
     static let ChoosenSlot = "Chosen slot"
-    
+
     struct  API {
         static let BaseURL = "http://localhost:8080"
         static let Token = "?token="
@@ -23,10 +23,12 @@ struct Constants {
         static let BaseURLAccount = BaseURL + "/account" + Token
         static let BaseURLCourses = BaseURL + "/courses/"
         static let BaseURLUsers = BaseURL + Users
+        static let BaseURLEntrytest = BaseURL + "/entryTests/"
         static let CoursesPerUser = "/courses" + Token
         static let EnrolledUserCount = "/userCount/enrolled" + Token
         static let VariantsPerCourse = "/variants" + Token
         static let OnWaitingList = "/courses/onWaitingList" + Token
+        static let GitRepo = "/git/repository" + Token
     }
     
     struct Colors {
@@ -39,6 +41,7 @@ struct Constants {
         static let BackgroundNotActive = 0xF5F5F5
         static let DetailNotActive = 0xA94442
         static let TitleNotActive = 0x808080
+        static let BackgroundBlue = 0xDDEDF6
     }
     
     struct Fonts {

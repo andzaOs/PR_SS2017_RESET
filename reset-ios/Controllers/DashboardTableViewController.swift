@@ -24,16 +24,13 @@ class DashboardTableViewController: UITableViewController{
     }
     
     @IBAction func btnEnroll(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EnrollTableViewController") as? EnrollTableViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseOverviewViewController") as? CourseOverviewViewController
         self.navigationController?.pushViewController(vc!, animated: true)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.title = Localized.localize(key: "dashboard_title")
         NetworkManager.sharedInstance.GetAccount(controler: self) { user, error in
             if(error != nil) {
                 print("Log: " + String(describing: error))
@@ -99,7 +96,6 @@ class DashboardTableViewController: UITableViewController{
         if let course = coursesPerYear[Int(year)]?[indexPath.row] {
             selectedCourse = course
         }
-        //self.performSegue(withIdentifier: "courseDetailsView", sender: self)
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseDetailsTableViewController") as? CourseDetailsTableViewController
         vc?.course = selectedCourse
         self.navigationController?.pushViewController(vc!, animated: true)

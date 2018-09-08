@@ -1,15 +1,16 @@
 //
-//  EntrytestTableViewController.swift
+//  TestTableViewController.swift
 //  reset-ios
 //
-//  Created by Anela Osmanovic on 26.07.18.
+//  Created by Anela Osmanovic on 26.08.18.
 //  Copyright © 2018 Andza Os. All rights reserved.
 //
 
 import UIKit
+import Alamofire
 
-class EntrytestTableViewController: UITableViewController {
-    
+class EntryTestViewController: UITableViewController {
+
     var course : Course?
     var enrollment: CourseEnrollment?
     var entrytestSlots: [EntrytestSlot] = [EntrytestSlot]()
@@ -18,43 +19,23 @@ class EntrytestTableViewController: UITableViewController {
     
     @IBOutlet var tableViewSlots: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setUp()
-    }
-    
-    func getSlotId() {
-        EntrytestNetManager.sharedInstance.GetEntryTestSlotId(courseId: (course?.id)!, controler: self) { entrytestSlotId, error in
-            if(entrytestSlotId != nil) {
-                self.slotId = entrytestSlotId!
-            } else if (error != nil) {
-                print("Log: " + String(describing: error))
+    override func viewWillAppear(_ animated: Bool) {
+        EntrytestNetManager.sharedInstance.GetCourseEnrollment(courseId: (self.course?.id)!, controler: self) {
+            enrollment, id in
+            if(enrollment != nil && id != nil) {
+                self.slotId = id!
+                self.getSlotsPerCourse(variantId: (enrollment?.variantId)!)
             }
         }
     }
     
     func getSlotsPerCourse(variantId: Int) {
         EntrytestNetManager.sharedInstance.GetEntryTestSlots(courseId: (course?.id)!, variantId: variantId) { slots, error in
-            
             if(slots != nil) {
                 self.entrytestSlots = slots!
                 EntrytestSlots.sharedInstance.setSlots(entrytestSlots: self.entrytestSlots)
                 self.sections = EntrytestSlots.sharedInstance.getSections()
                 self.tableView.reloadData()
-            } else if (error != nil) {
-                print("Log: " + String(describing: error))
-            }
-        }
-    }
-    
-    func setUp() {
-        
-        CourseSettingsNetManager.sharedInstance.GetCourseEnrollment(courseId: (course?.id)!, controler: self) {
-            enrollment, error in
-            
-            if(enrollment != nil) {
-                self.getSlotId()
-                self.getSlotsPerCourse(variantId: (enrollment?.variantId)!)
             } else if (error != nil) {
                 print("Log: " + String(describing: error))
             }
@@ -73,18 +54,22 @@ class EntrytestTableViewController: UITableViewController {
     }
     
     override func tableView( _ tableView : UITableView,  titleForHeaderInSection section: Int)->String {
+        if(self.sections.count == 0) {
+            return ""
+        }
         let title = String(self.sections[section])
         return title
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(self.sections[section] == Constants.ChoosenSlot)
-        {
+        if(self.sections.count == 0) {
+            return 0
+        } else if(self.sections[section] == Constants.ChoosenSlot) {
             return 1
         }
-        let count = EntrytestSlots.sharedInstance.getSlotsPerDate(date: self.sections[section]).count
-        return count
+        
+        return EntrytestSlots.sharedInstance.getSlotsPerDate(date: self.sections[section]).count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,15 +80,19 @@ class EntrytestTableViewController: UITableViewController {
             
             if(slotId != -1) {
                 slot = EntrytestSlots.sharedInstance.getSlotById(slotId: slotId)
+                cell.backgroundColor = UIColor(rgb: Constants.Colors.BackgroundEnrolled)
             }
         } else {
             
             var slotPerDate = EntrytestSlots.sharedInstance.getSlotsPerDate(date: self.sections[indexPath.section])
             slot = slotPerDate[indexPath.row]
+            if(slot.id == self.slotId) {
+                 cell.backgroundColor = UIColor(rgb: Constants.Colors.BackgroundEnrolled)
+            }
         }
         
         cell.textLabel?.text = slot.location
         return cell
     }
-    
+
 }

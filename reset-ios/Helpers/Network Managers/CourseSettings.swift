@@ -1,5 +1,5 @@
 //
-//  CourseSettingsNetManager.swift
+//  CourseSettings.swift
 //  reset-ios
 //
 //  Created by Anela Osmanovic on 27.07.18.
@@ -12,9 +12,9 @@ import Alamofire
 import KeychainSwift
 import PromiseKit
 
-class CourseSettingsNetManager {
+class CourseSettings {
     
-    static let sharedInstance = CourseSettingsNetManager()
+    static let sharedInstance = CourseSettings()
     
     
     func GetCourseEnrollment(courseId: Int,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   controler: UIViewController, completionHandler: @escaping (CourseEnrollment?, NSError?) -> ()) {
@@ -26,7 +26,8 @@ class CourseSettingsNetManager {
             
         }
         
-        Alamofire.request(url, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(url, encoding: URLEncoding.default).responseJSON {
+            response in
             
             switch response.result {
                 
@@ -37,6 +38,7 @@ class CourseSettingsNetManager {
                     if(response.response?.statusCode == 200){
                         
                         let enrollment = CourseEnrollment(json: JSON(result))
+                    
                         completionHandler(enrollment, nil)
                         
                     } else {
@@ -48,7 +50,6 @@ class CourseSettingsNetManager {
                 }
                 
             case .failure(let error):
-                
                 completionHandler(nil, error as NSError?)
             }
         }

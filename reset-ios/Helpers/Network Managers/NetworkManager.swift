@@ -618,7 +618,6 @@ class NetworkManager {
         }
         
     }
-
 }
 
 

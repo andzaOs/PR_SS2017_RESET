@@ -39,6 +39,7 @@ class LoginTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = Localized.localize(key: "login_title")
         txtUsername.delegate = self
         txtPassword.delegate = self
         

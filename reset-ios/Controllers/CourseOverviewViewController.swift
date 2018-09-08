@@ -8,23 +8,16 @@
 
 import UIKit
 
-class EnrollTableViewController: UITableViewController {
+class CourseOverviewViewController: UITableViewController {
 
     @IBOutlet var tableViewCourses: UITableView!
     var courses: [Course] = [Course]()
     var sectiones: [String] = [String]()
     var selectedCourse = Course()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseSettingsTableViewController") as? CourseSettingsTableViewController
-        vc?.course = selectedCourse
-        self.navigationController?.pushViewController(vc!, animated: true)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.title = Localized.localize(key: "course_overview_title")
         NetworkManager.sharedInstance.AllCourses(controler: self) { courses, error in
             
             self.courses = courses!
@@ -53,7 +46,6 @@ class EnrollTableViewController: UITableViewController {
         return title
         
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let type = self.sectiones[section]
         let count = Courses.sharedInstance.getCoursesPerType(type: type).count
@@ -127,6 +119,9 @@ class EnrollTableViewController: UITableViewController {
         if let course = coursesPerType[type]?[indexPath.row] {
             selectedCourse = course
         }
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CourseSettingsTableViewController") as? CourseSettingsTableViewController
+        vc?.course = selectedCourse
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
 }
