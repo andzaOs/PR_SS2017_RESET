@@ -25,14 +25,17 @@ class LoginTableViewController: UITableViewController, UITextFieldDelegate {
             
         } else {
             
-            NetworkManager.sharedInstance.Login(username: txtUsername.text!, password: txtPassword.text!, controler: controler) { responseObject, error in
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DashboardTableViewControllerNavigation")
+            self.present(vc, animated: true, completion: nil)
+            
+            /*NetworkManager.sharedInstance.Login(username: txtUsername.text!, password: txtPassword.text!, controler: controler) { responseObject, error in
                 if(error == nil) {
                     let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DashboardTableViewControllerNavigation")
                     self.present(vc, animated: true, completion: nil)
                 } else {
                     print("Log: " + String(describing: error))
                 }
-            }
+            }*/
         }
         
     }

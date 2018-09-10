@@ -32,7 +32,31 @@ class reset_iosUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.textFields["Input"]/*[[".cells.textFields[\"Input\"]",".textFields[\"Input\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
+        let tKey = app/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        tKey.tap()
+        let eKey = app/*@START_MENU_TOKEN@*/.keys["e"]/*[[".keyboards.keys[\"e\"]",".keys[\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        eKey.tap()
+        let sKey = app/*@START_MENU_TOKEN@*/.keys["s"]/*[[".keyboards.keys[\"s\"]",".keys[\"s\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        sKey.tap()
+        tKey.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["Next:"]/*[[".keyboards",".buttons[\"Next\"]",".buttons[\"Next:\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery.cells.containing(.staticText, identifier:"Username").children(matching: .textField).element.swipeUp()
+        
+        let inputSecureTextField = tablesQuery/*@START_MENU_TOKEN@*/.secureTextFields["Input"]/*[[".cells.secureTextFields[\"Input\"]",".secureTextFields[\"Input\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        inputSecureTextField.tap()
+        inputSecureTextField.tap()
+        tKey.tap()
+        eKey.tap()
+        sKey.tap()
+        tKey.tap()
+        let signIn = tablesQuery.buttons["Sign in"]
+        signIn.tap()
+        app.navigationBars["Dashboard"].children(matching: .button).element.tap()
+        app.navigationBars["Account Settings"].buttons["Back"].tap()
     }
     
 }

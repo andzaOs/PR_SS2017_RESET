@@ -16,8 +16,8 @@ class Paths {
     
     
     func Token() -> String {
-        let token = KeychainSwift().get(Constants.Auth.AuthToken)!
-        return token
+        //let token = KeychainSwift().get(Constants.Auth.AuthToken)!
+        return ""//token
     }
     
     func getAccountPath() -> String {
