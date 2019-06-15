@@ -1,18 +1,11 @@
-# RESET - Project and repository management
-
-iOS Mobile App that should cover all/only students activities from web app: https://reset.inso.tuwien.ac.at
+# Homeworks
 
 **Institution:** TU Vienna
 
-**Subject:** Project in Software Engineering & Internet Computing
+**Subject:** Functional Programming
 
-**Academic year:** 2017/2018
+**Academic year:** 2018/2019
 
-**Application type:**  Native iOS Mobile App
+**Programming language:** Haskell
 
-**Programming language:** Swift
-
-**IDE:** XCode
-
-
-**Demo video:** https://www.dropbox.com/s/5ige1c09o5nxd77/Demo.mov?dl=0
+**IDE:** Console + Hugs 98 
