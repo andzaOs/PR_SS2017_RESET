@@ -8,7 +8,7 @@ iOS Mobile App that should cover all/only students activities from web app: http
 
 **Academic year:** 2017/2018
 
-**Application type:** iOS Mobile App
+**Application type:**  Native iOS Mobile App
 
 **Programming language:** Swift
 
